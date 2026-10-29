@@ -137,7 +137,7 @@ Commands:
 | `hello` | greet the bot |
 | `add <name> <phone>` | add a new contact |
 | `change <name> <phone>` | update an existing contact |
-| `show <name>` | show the phone number of a contact |
+| `phone <name>` | show the phone number of a contact |
 | `all` | list all contacts |
 | `close` / `exit` | quit the assistant |
 
