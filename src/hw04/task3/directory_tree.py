@@ -8,11 +8,7 @@ init(autoreset=True)
 
 def print_directory_contents(path, indentation=""):
     path = Path(path)
-    
-    if not path.exists():
-        print(f"{path} does not exist")
-        return
-    
+
     if path.is_dir():
         print(f"{indentation}{Fore.BLUE}{Style.BRIGHT}{path.name}/")
         for item in sorted(path.iterdir()):
@@ -27,12 +23,19 @@ def main():
         print("Usage: python -m hw04.task3 <path_to_directory>")
         sys.exit(1)
 
-    path = sys.argv[1]
+    path = Path(sys.argv[1])
+
+    if not path.exists():
+        print(f"{Fore.RED}Path '{path}' does not exist")
+        sys.exit(1)
+
+    if not path.is_dir():
+        print(f"{Fore.RED}Path '{path}' is not a directory")
+        sys.exit(1)
+
     print_directory_contents(path)
 
-    sys.exit(1)
-
-    ...
+    sys.exit(0)
 
 
 if __name__ == "__main__":
